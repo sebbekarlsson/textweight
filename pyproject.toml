@@ -1,0 +1,60 @@
+[project]
+name = 'textweight'
+version = '1.0.0'
+dependencies = [
+
+  # development dependencies
+  'six',
+  'watchdog',
+  'packaging',
+  'epc',
+  'basedpyright',
+  'mypy',
+  'pytest'
+
+
+  # Runtime dependencies
+  # ... None for now
+]
+
+[tool.setuptools.packages.find]
+where = ["."]  # list of folders that contain the packages (["."] by default)
+include = ["*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["./test"]  # exclude packages matching these glob patterns (empty by default)
+# namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+#[project.scripts]
+#sm_run = "..."
+
+
+[tool.mypy]
+mypy_path = "./stub/"
+strict = true
+warn_unused_ignores = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+
+
+[tool.basedpyright]
+include = ["textweight", "test"]
+#stubPath = "./stub"
+enableTypeIgnoreComments = true # Leave "type: ignore" comments to mypy
+ignore = [
+    "**/site-packages/", # Disable annoying checks in third-party library code
+]
+
+typeCheckingMode = "strict"
+reportCallInDefaultInitializer = "error"
+reportUnnecessaryTypeIgnoreComment = "error"
+reportIncompleteStub = "none"
+reportMissingParameterType = "none"
+reportUnknownMemberType = "none"
+reportUnknownParameterType = "none"
+reportUnknownVariableType = "none"
+reportMissingModuleSource = "none"
+reportMissingTypeStubs = false
+reportPrivateUsage = "none"
+reportOverlappingOverload = "none"
+reportIncompatibleMethodOverride = "none"
+reportIncompatibleVariableOverride = "none"
+reportPropertyTypeMismatch = "none"
+reportSelfClsParameterName = "none"
