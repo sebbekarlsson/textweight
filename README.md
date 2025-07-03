@@ -24,7 +24,7 @@ compare("same", "same")    # 1.0
 from textweight import levenshtein_similarity, jaro_winkler_similarity, keyboard_similarity
 
 levenshtein_similarity("hello", "hellu")  # 0.8
-jaro_winkler_similarity(hello", "hellu")  # 0.92
+jaro_winkler_similarity("hello", "hellu")  # 0.92
 keyboard_similarity("hello", "hellu")     # 0.9809291331384145
 ```
 These also returns a "similarity" score from 0.0 -> 1.0.  
